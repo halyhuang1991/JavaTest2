@@ -1,0 +1,8 @@
+Ctrl+Shift+P  => java new project =>JavaSE =>在.project 修改JavaSE-10 为 JavaSE-1.8
+
+echo "# JavaTest2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:halyhuang1991/JavaTest2.git
+git push -u origin master

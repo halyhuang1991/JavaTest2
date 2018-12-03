@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+    <attributes>
+      <attribute name="module" value="true"/>
+    </attributes>
+  </classpathentry>
+  <!-- <classpathentry kind="con" path="lib/mysql-connector-java-5.1.42-bin.jar">
+        </classpathentry> -->
+  <classpathentry kind="lib" path="C:/Users/halyhuang/workspace/test/lib/mysql-connector-java-5.1.42-bin.jar"/>
+  <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\ojdbc6.jar"/>
+  <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\gson-2.2.2.jar"/>
+  <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\db2jcc4.jar"/>
+  <classpathentry kind="src" path="src"/>
+  <classpathentry kind="output" path="bin"/>
+</classpath>
