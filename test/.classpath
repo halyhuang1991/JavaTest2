@@ -13,6 +13,7 @@
   <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\db2jcc4.jar"/>
   <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\sqljdbc41.jar"/>
   <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\javax.xml.bind.jar"/>
+  <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\sqlite-jdbc-3.23.1.jar"/>
   <classpathentry kind="src" path="src"/>
   <classpathentry kind="output" path="bin"/>
 </classpath>

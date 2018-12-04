@@ -21,7 +21,7 @@ public class SqlDb {
         // 驱动程序名
         String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         // URL指向要访问的数据库名mydata
-        String url = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=test";
+        String url = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=test";// ipall 端口设置1433
         String user = "haly";
         String password = "admin";
         // 遍历查询结果集
