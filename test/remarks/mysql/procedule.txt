@@ -1,0 +1,33 @@
+DELIMITER $
+CREATE PROCEDURE test.get_person_count(IN id INT, OUT user_count INT)
+BEGIN  
+IF id=0 THEN
+SELECT COUNT(*) FROM test.person WHERE id>2 INTO user_count;
+ELSE
+SELECT COUNT(*) FROM test.person WHERE id<20 INTO user_count;
+END IF;
+END 
+$
+
+
+DELIMITER ;
+SET @user_count = 0;
+CALL test.get_person_count(1, @user_count);
+SELECT @user_count;
+
+-------------
+CREATE PROCEDURE test.test_sp1( )  
+    BEGIN  
+    DECLARE t_error INTEGER DEFAULT 0;  
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET t_error=1;  
+  
+        START TRANSACTION;  
+            INSERT INTO test VALUES(NULL, 'test sql 001');     
+            INSERT INTO test VALUES('1', 'test sql 002');     
+  
+        IF t_error = 1 THEN  
+            ROLLBACK;  
+        ELSE  
+            COMMIT;  
+        END IF;  
+ END

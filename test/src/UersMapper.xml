@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+        <mapper namespace="com.Beans/mapper.UserMapper"> 
+        <!-- 命名空间，名字可以随意起，只要不冲突即可 --> <!-- 对象映射，可以不写 --> 
+        <!-- 查询功能，resultType 设置返回值类型 --> 
+        <select id="findAll" resultType="com.Beans.Person"> 
+        <!-- 书写 SQL 语句 --> 
+        SELECT * FROM Person
+        </select> 
+        <select id="queryList" resultType="com.Beans.Person" statementType="STATEMENT">
+                Select * from Person where id = ${id} ORDER BY id
+        </select> 
+        <insert id="insertUser" parameterType="com.Beans.Person">
+           insert into Person(id, name, age) 
+               values(#{id}, #{name}, #{age})
+   </insert>
+   
+   <!-- 对应userDao中的updateUser方法 -->
+   <update id="updateUser" parameterType="com.Beans.Person">
+           update Person set name = #{name}, age = #{age} where id = #{id} ;
+   </update>
+    
+   <!-- 对应userDao中的deleteUser 方法 --> 
+   <delete id="deleteUser" parameterType="com.Beans.Person">
+           delete from Person where id = #{id};
+   </delete>
+   <insert id="saveOrUpdate" > 
+        <selectKey keyProperty="count" resultType="int" order="BEFORE"> 
+                select count(*) from Person where id = #{id} </selectKey> 
+           <if test="count > 0">
+                update Person set name = #{name},age = #{age} where id = #{id} 
+            </if> 
+            <if test="count==0"> 
+                insert into Person values(#{id},#{name},#{age}) 
+           </if>
+     </insert>
+     <!-- 调用事务 -->
+ <select id="getUserCount" parameterMap="getUserCountMap" statementType="CALLABLE">
+        CALL test.get_person_count(?,?)
+    </select>
+    
+    <!--
+        parameterMap.put("id", 0);
+        parameterMap.put("usercount", -1);
+     -->
+    <parameterMap type="java.util.Map" id="getUserCountMap">
+        <parameter property="id" mode="IN" jdbcType="INTEGER"/>
+        <parameter property="usercount" mode="OUT" jdbcType="INTEGER"/>
+    </parameterMap>
+ </mapper>

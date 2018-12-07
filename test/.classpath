@@ -14,6 +14,8 @@
   <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\sqljdbc41.jar"/>
   <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\javax.xml.bind.jar"/>
   <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\sqlite-jdbc-3.23.1.jar"/>
+  <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\mybatis-3.4.6.jar"/>
+  <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\lib\javassist-3.22.0-GA.jar"/>
   <classpathentry kind="src" path="src"/>
   <classpathentry kind="output" path="bin"/>
 </classpath>
