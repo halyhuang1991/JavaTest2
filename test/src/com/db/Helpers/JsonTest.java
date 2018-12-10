@@ -32,7 +32,7 @@ public class JsonTest {
             JsonObject subObject = object.get("OracleConnectString").getAsJsonObject();
             return subObject.get(option).getAsString();
         } catch (Exception e) {
-            // TODO: handle exception
+
             return "";
         }
     }
@@ -45,7 +45,7 @@ public class JsonTest {
             JsonObject subObject = object.get("DB2ConnectString").getAsJsonObject();
             return subObject.get(option).getAsString();
         } catch (Exception e) {
-            // TODO: handle exception
+
             return "";
         }
     }

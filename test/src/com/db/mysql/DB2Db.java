@@ -44,7 +44,7 @@ public class DB2Db {
             // 数据库连接失败异常处理
             e.printStackTrace();
         } catch (Exception e) {
-            // TODO: handle exception
+
             e.printStackTrace();
         } finally {
             System.out.println("数据库数据成功获取！！");
@@ -72,7 +72,7 @@ public class DB2Db {
         return list;
     }
 
-    public static List GetLs(String sql) throws SQLException {
+    public static List<Map<String, Object>> GetLs(String sql) throws SQLException {
         return convertList(GetRs(sql));
     }
 
@@ -95,7 +95,7 @@ public class DB2Db {
                 }
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

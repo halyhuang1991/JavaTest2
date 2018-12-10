@@ -1,6 +1,7 @@
 package com.db.Helpers;
 
 import java.io.FileInputStream;
+// import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -19,6 +20,22 @@ import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import java.util.Map;
 
 public class SessionFactory {
+    private static SqlSession GetFactory() {
+        String resource = "mybatis-config.xml";
+        // 定位核心配置文件
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        // 创建 SqlSessionFactory
+        SqlSession sqlSession = sqlSessionFactory.openSession(false);
+        return sqlSession;
+    }
+
     public static void TestMybatis() {
         /**
          * 1、获得 SqlSessionFactory 2、获得 SqlSession 3、调用在 mapper 文件中配置的 SQL 语句
@@ -79,7 +96,7 @@ public class SessionFactory {
                 try {
                     newTransaction.rollback();
                 } catch (SQLException e1) {
-                    // TODO Auto-generated catch block
+
                     e1.printStackTrace();
                 }
 
@@ -92,8 +109,54 @@ public class SessionFactory {
             Integer result = parameterMap.get("usercount");
             System.out.println(result);
 
+            // ---------------------------多表查询
+            // sqlSessionFactory.getConfiguration().addMapper(SqlDao.class);
+            SqlDao sqlDao = sqlSession.getMapper(SqlDao.class);
+            List<Map<String, Object>> sqlresult = sqlDao.findMultiTable(1);
+            System.out.println("name\tmath");
+            System.out.println("findMultiTable==============findMultiTableByWhere");
+            sqlresult = sqlDao.findMultiTableByWhere(" where p.id=1");
+            for (Map<String, Object> one_sqlresult : sqlresult) {
+                System.out.println(one_sqlresult.get("name") + "\t" + one_sqlresult.get("Math"));
+            }
+            sqlresult = sqlDao.getList1(1);
+            for (Map<String, Object> one_sqlresult : sqlresult) {
+                System.out.println(one_sqlresult.get("name") + "----");
+            }
+            sqlDao.UpdateUser1(1, "11111");
+            sqlSession.commit();
+            // ------------多参数查询
+            System.out.println("=======多参数查询=============");
+            // ---传入String 会在sql多加了个单引号 导致出错
+            HashMap<String, Object> paramap = new HashMap<String, Object>();
+            paramap.put("id", 3);
+            paramap.put("name", "name111");
+            // personList = sqlSession.selectList("com.db.Helpers.SqlDao.getPersonList1",
+            // "name111");
+            // for (int i = 0; i < personList.size(); i++) {
+            // System.out.println(personList.get(i)); // .get(index)
+            // }
+            // sqlresult = sqlSession.selectList("com.db.Helpers.SqlDao.getPersonList",
+            // paramap);
+            // for (Map<String, Object> one_sqlresult : sqlresult) {
+            // System.out.println(one_sqlresult.get("name") + "----");
+            // }
+            HashMap<String, Object> map = new HashMap<String, Object>();
+            map.put("name", "creator11");
+            String[] ids = { "1", "2" };
+            map.put("ids", ids);
+            sqlSession.update("com.db.Helpers.SqlDao.updatePersonList1", map);
+            sqlSession.commit();
+            // sqlresult = sqlSession.selectList("com.db.Helpers.SqlDao.getPersonList2",
+            // map);
+            /*
+             * sqlresult = sqlDao.getPersonList2(map); for (Map<String, Object>
+             * one_sqlresult : sqlresult) { System.out.println(one_sqlresult.get("name") +
+             * "----"); }
+             */
+
         } catch (Exception e) {
-            // TODO: handle exception
+
             e.printStackTrace();
         }
 

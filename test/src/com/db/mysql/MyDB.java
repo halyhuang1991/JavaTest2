@@ -11,9 +11,54 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.mysql.jdbc.CallableStatement;
+
 public class MyDB {
     public static void run() {
-        System.out.println("ok");
+        // 声明Connection对象
+        Connection con = null;
+        ResultSet rs = null;
+        String driver = "com.mysql.jdbc.Driver";
+        String url = "jdbc:mysql://localhost:3306/test";
+        String user = "root";
+        String password = "admin";
+        try {
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user, password);
+            con.setAutoCommit(false);
+            CallableStatement cs = (CallableStatement) con.prepareCall("{call test.get_person_count(?,?)}");
+            cs.setObject(1, 1);
+            // cs.setObject(2, 0);
+
+            cs.registerOutParameter(2, java.sql.Types.INTEGER);
+            cs.execute();
+            con.commit();
+            Object objRtn = cs.getObject(2); // 得到返回值
+            System.out.println(objRtn);
+            // ----
+            cs = (CallableStatement) con.prepareCall("{call test.testProc(?)}");
+            cs.setObject(1, 0);
+            rs = cs.executeQuery();
+            List<Map<String, Object>> ls = convertList(rs);
+            for (Map<String, Object> map : ls) {
+                System.out.println("--------------------------------------------------");
+                for (Map.Entry<String, Object> m : map.entrySet()) {
+                    System.out.print(m.getKey() + "    ");
+                    System.out.println(m.getValue());
+                }
+            }
+            cs.close();
+            con.close();
+        } catch (Exception e) {
+            try {
+                con.rollback();
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            e.printStackTrace();
+
+        }
+
     }
 
     public static ResultSet GetRs(String sql) {
@@ -58,7 +103,7 @@ public class MyDB {
             // 数据库连接失败异常处理
             e.printStackTrace();
         } catch (Exception e) {
-            // TODO: handle exception
+
             e.printStackTrace();
         } finally {
             System.out.println("数据库数据成功获取！！");
@@ -86,7 +131,7 @@ public class MyDB {
         return list;
     }
 
-    public static List GetLs(String sql) throws SQLException {
+    public static List<Map<String, Object>> GetLs(String sql) throws SQLException {
         return convertList(GetRs(sql));
     }
 
@@ -109,7 +154,7 @@ public class MyDB {
                 }
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

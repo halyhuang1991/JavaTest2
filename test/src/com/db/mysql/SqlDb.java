@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.db.Helpers.*;
-import com.microsoft.sqlserver.jdbc.*;
+// import com.db.Helpers.*;
+// import com.microsoft.sqlserver.jdbc.*;
 
 public class SqlDb {
     public static ResultSet GetRs(String sql) {
@@ -59,7 +59,7 @@ public class SqlDb {
             // 数据库连接失败异常处理
             e.printStackTrace();
         } catch (Exception e) {
-            // TODO: handle exception
+
             e.printStackTrace();
         } finally {
             System.out.println("数据库数据成功获取！！");
@@ -87,7 +87,7 @@ public class SqlDb {
         return list;
     }
 
-    public static List GetLs(String sql) throws SQLException {
+    public static List<Map<String, Object>> GetLs(String sql) throws SQLException {
         return convertList(GetRs(sql));
     }
 
@@ -110,7 +110,7 @@ public class SqlDb {
                 }
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+
             e.printStackTrace();
         }
 

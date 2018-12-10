@@ -8,9 +8,10 @@
         <!-- 书写 SQL 语句 --> 
         SELECT * FROM Person
         </select> 
-        <select id="queryList" resultType="com.Beans.Person" statementType="STATEMENT">
-                Select * from Person where id = ${id} ORDER BY id
+        <select id="queryList" parameterType="com.Beans.Person" resultType="com.Beans.Person" >
+                Select * from Person where id = #{id} ORDER BY id
         </select> 
+
         <insert id="insertUser" parameterType="com.Beans.Person">
            insert into Person(id, name, age) 
                values(#{id}, #{name}, #{age})
@@ -20,7 +21,7 @@
    <update id="updateUser" parameterType="com.Beans.Person">
            update Person set name = #{name}, age = #{age} where id = #{id} ;
    </update>
-    
+      
    <!-- 对应userDao中的deleteUser 方法 --> 
    <delete id="deleteUser" parameterType="com.Beans.Person">
            delete from Person where id = #{id};

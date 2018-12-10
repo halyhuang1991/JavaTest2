@@ -4,7 +4,7 @@ public class Person {
     private Integer id;
     private String name;
     private Integer age;
-    private Integer count;
+    private Integer count = 0;
 
     public Integer getId() {
         return id;

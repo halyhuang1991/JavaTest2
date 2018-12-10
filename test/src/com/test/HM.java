@@ -11,6 +11,8 @@ public class HM {
         rowData.put("", "ac");
         rowData.put(null, "ac");
         rowData.put(null, null);
+        System.out.println("--" + rowData.get("a"));
+
         for (Map.Entry<String, Object> m : rowData.entrySet()) {
             System.out.print(m.getKey() + "    ");
             System.out.println(m.getValue());

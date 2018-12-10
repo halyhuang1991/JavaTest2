@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+        <mapper namespace="com.db.Helpers.SqlDao"> 
+       
+    <!-- 多表查询 -->
+    <select id="findMultiTable" parameterType="java.lang.Integer" resultType="java.util.Map">
+		select p.*,s.Math from person p inner join score s on p.id=s.id where p.id = #{id} 
+	</select>
+   <select id="findMultiTableByWhere" parameterType="java.lang.String" resultType="java.util.Map">
+		select p.*,s.Math from person p inner join score s on p.id=s.id ${_parameter} 
+	</select>
+  <update id="UpdateUser1">
+           update Person set name = #{name} where id = #{id} ;
+   </update>
+           <select id="getPersonList" parameterType="java.util.Map"  statementType="STATEMENT">
+　　        select p.* from person p where p.name = '${name}' ORDER BY p.id
+       </select>
+       <select id="getPersonList0" parameterType="java.util.Map" resultType="com.Beans.Person" >
+　　        select p.* from person p  
+		<if test="name!=''"> where p.name = #{name}</if>
+                ORDER BY p.id
+       </select>
+        <select id="getPersonList1" parameterType="java.lang.String" resultType="com.Beans.Person" statementType="STATEMENT">
+　　        select p.* from person p where p.name = '${_parameter}' ORDER BY p.id
+       </select>
+        <select id="getPersonList2" parameterType="Map">
+　　        select p.* from person p where p.name in (#{ids[0]},#{ids[1]}) ORDER BY p.id;
+       </select>
+       <update id="updatePersonList1" parameterType="Map">
+        update person  
+        set name = #{name}
+        <if test="ids != null and ids.length > 0">
+        where id in 
+                <foreach collection="ids" item="id1" separator="," open="(" close=")">
+                 #{id1}
+               </foreach>
+        </if>
+        </update>
+ </mapper>

@@ -34,7 +34,7 @@ public class SqliteTest {
             try {
                 c.commit();
             } catch (Exception e) {
-                // TODO: handle exception
+
                 c.rollback();
             }
             ResultSet rs = stmt.executeQuery("SELECT * FROM COMPANY;");
