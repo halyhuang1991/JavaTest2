@@ -1,5 +1,6 @@
 
 // import com.db.Helpers.JsonTest;
+import com.Refretor.TestRefretor;
 import com.db.Helpers.SessionFactory;
 // import com.db.mysql.*;
 // import com.test.HM;
@@ -9,5 +10,6 @@ import com.test.HM;
 public class hello {
     public static void main(String[] args) {
         System.out.println("ok");
+        TestRefretor.run();
     }
 }
