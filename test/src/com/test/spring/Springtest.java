@@ -8,5 +8,7 @@ public class Springtest {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         userService server = (userService) applicationContext.getBean("userService");
         server.sayHello();
+        server.sayHello("msg");
+        System.out.println(server.Echo("msg"));
     }
 }

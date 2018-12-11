@@ -62,7 +62,7 @@ public class TestRefretor {
                 System.out.println(annotations[i]);
             }
         } catch (Exception e1) {
-            // TODO Auto-generated catch block
+
             e1.printStackTrace();
         }
 
