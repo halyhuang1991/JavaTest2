@@ -57,13 +57,13 @@ public class OraDb {
 
             e.printStackTrace();
         } finally {
-            System.out.println("数据库数据成功获取！！");
+            System.out.println("Get Data Successfully!!");
         }
         return rs;
 
     }
 
-    private static List<Map<String, Object>> convertList(ResultSet rs) throws SQLException {
+    public static List<Map<String, Object>> convertList(ResultSet rs) throws SQLException {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         try {
             ResultSetMetaData md = rs.getMetaData();// 获取键名
