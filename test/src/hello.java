@@ -10,6 +10,8 @@ import com.db.Helpers.SessionFactory;
 // import com.test.HM;
 import com.db.mysql.MyDB;
 import com.test.HM;
+import com.test.Webserver.*;
+
 import com.test.spring.Springtest;
 
 public class hello {
@@ -31,6 +33,7 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         System.out.println("ok");
-        GenHtmlOrDes.run();
+        MySocket.run();
+        
     }
 }
