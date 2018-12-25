@@ -7,6 +7,14 @@ public class Info {
     private String name;
     private Integer age;
 
+    public Info() {
+    }
+
+    public Info(String name) {
+        this.name = name;
+        this.id = 1;
+    }
+
     public Integer getId() {
         return id;
     }

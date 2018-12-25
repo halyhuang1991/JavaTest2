@@ -61,6 +61,13 @@ public class TestRefretor {
             for (int i = 0; i < annotations.length; i++) {
                 System.out.println(annotations[i]);
             }
+            Constructor constructor2 = c1.getConstructor(new Class[] { String.class });
+            System.out.println("修饰符: " + Modifier.toString(constructor2.getModifiers()));
+            System.out.println("构造函数名: " + constructor2.getName());
+            System.out.println("参数列表: " + constructor2.getParameterTypes());
+            Object o = constructor2.newInstance(new Object[] { "ok" });
+            System.out.println(((Info) o).getName());
+
         } catch (Exception e1) {
 
             e1.printStackTrace();

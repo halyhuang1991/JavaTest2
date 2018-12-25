@@ -34,8 +34,7 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         System.out.println("ok");
-        Springtest s = new Springtest();
-        s.run();
+        TestRefretor.run();
 
     }
 }
