@@ -49,4 +49,17 @@ public class JsonTest {
             return "";
         }
     }
+
+    public static String GetAs400(String option) {
+        try {
+            String path = "E:\\web\\Setting.json";
+            JsonParser parser = new JsonParser();
+            JsonObject object = (JsonObject) parser.parse(new FileReader(path));
+            JsonObject subObject = object.get("DB2ConnectString1").getAsJsonObject();
+            return subObject.get(option).getAsString();
+        } catch (Exception e) {
+
+            return "";
+        }
+    }
 }
