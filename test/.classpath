@@ -22,6 +22,7 @@
      <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\com\mail.jar"/>
       <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\com\activation-1.1.jar"/>
       <!-- office -->
+       <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\com\jxl.jar"/>
        <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\com\ucanaccess-4.0.4.jar"/>
         <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\com\jackcess-2.1.11.jar"/>
          <classpathentry kind="lib" path="D:\C\github\JavaTest2\test\lib\com\hsqldb.jar"/>

@@ -13,6 +13,7 @@ import com.db.mysql.DB2Db;
 import com.db.mysql.MyDB;
 import com.test.HM;
 import com.test.Email.sendEmail;
+import com.test.Excel.TestExcel;
 import com.test.Redis.TestJedis;
 import com.test.Webserver.*;
 
@@ -37,6 +38,6 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         System.out.println("ok");
-        TestAccess.test();
+        TestExcel.test();
     }
 }

@@ -8,6 +8,7 @@ import java.util.concurrent.Executors;
 
 public class MySocket {
     public void StartServer() {
+
         try {
             ServerSocket serverSocket = new ServerSocket(10086);
             ExecutorService ThreadPool = Executors.newFixedThreadPool(10);
@@ -50,9 +51,7 @@ public class MySocket {
             // 5、关闭资源
 
             // serverSocket.close();
-        } catch (
-
-        Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -95,7 +94,7 @@ public class MySocket {
         threadDemo01.start();
         for (Integer i = 0; i < 4; i++) {
             ThreadDemo02 threadDemo02 = new ThreadDemo02();
-            threadDemo02.setName("我是客户端的线程"+i);      
+            threadDemo02.setName("我是客户端的线程" + i);
             threadDemo02.start();
         }
 
