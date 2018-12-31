@@ -7,6 +7,7 @@ import com.Refretor.TestRefretor;
 import com.db.DailyTools.GenHtmlOrDes;
 import com.db.Helpers.SessionFactory;
 import com.db.JDBC.JDBCTest;
+import com.db.JDBC.TestAccess;
 import com.db.mysql.DB2Db;
 // import com.test.HM;
 import com.db.mysql.MyDB;
@@ -36,6 +37,6 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         System.out.println("ok");
-
+        TestAccess.test();
     }
 }

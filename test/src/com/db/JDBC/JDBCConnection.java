@@ -50,6 +50,23 @@ public class JDBCConnection {
         return null;
     }
 
+    public static Connection getUcanAccessConnection(String localhost) {
+        return getUcanAccessConnection(localhost, "admin", "");
+    }
+
+    public static Connection getUcanAccessConnection(String localhost, String user, String password) {
+        Connection conn = null;
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            String url = "jdbc:ucanaccess://" + localhost;
+
+            return DriverManager.getConnection(url, user, password);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static Connection getAS400Connection(String localhost, String user, String password) {
         Connection conn = null;
         try {
