@@ -1,10 +1,10 @@
 package com.test.Redis;
 
-import java.util.HashMap;
+// import java.util.HashMap;
 import java.util.List;
 
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
+// import redis.clients.jedis.JedisPool;
 
 public class TestJedis {
     public static void testConnRedis() {

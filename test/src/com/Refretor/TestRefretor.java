@@ -8,12 +8,12 @@ import com.Beans.Person;
 public class TestRefretor {
     public static void run() {
         Person p = new Person();
-        Class classType = p.getClass();// c1 = Class.forName("com.Beans.Person");p=c1.newInstance();
+        Class<?> classType = p.getClass();// c1 = Class.forName("com.Beans.Person");p=c1.newInstance();
         Field[] fields = classType.getDeclaredFields();
         for (Field f : fields) {
             f.setAccessible(true);
             try {
-                Class c = f.getType();
+                Class<?> c = f.getType();
                 if (c.getName() == "java.lang.String") {
                     f.set(p, "lisi");
                 } else {
@@ -34,7 +34,7 @@ public class TestRefretor {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Class c1;
+        Class<?> c1;
         Info pp;
         try {
             c1 = Class.forName("com.Refretor.Info");

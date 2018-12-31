@@ -1,7 +1,7 @@
 package com.test.Email;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Date;
+// import java.io.UnsupportedEncodingException;
+// import java.util.Date;
 import java.util.Properties;
 
 import javax.mail.*;
