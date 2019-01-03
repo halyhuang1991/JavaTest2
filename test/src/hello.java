@@ -27,7 +27,7 @@ public class hello {
                 try {
                     x = new String(x.getBytes("gbk"), "utf-8");
                 } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                     e.printStackTrace();
                 }
                 super.println(x);
             }
@@ -38,6 +38,6 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         System.out.println("ok");
-        TestExcel.test();
+        JDBCTest.test();
     }
 }

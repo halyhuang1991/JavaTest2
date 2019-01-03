@@ -19,6 +19,16 @@ public class JDBCTest {
             Statement stmt = con.createStatement(1005, 1007);
             DatabaseAndTable = JsonTest.GetAs400("DatabaseAndTable");
             ResultSet rs = stmt.executeQuery("select * from " + DatabaseAndTable);// rs进行读取一次 判断是否有数据
+            ResultSetMetaData rsd = rs.getMetaData();
+            for(int i = 0; i < rsd.getColumnCount(); i++) {
+              System.out.print("java className："+rsd.getColumnClassName(i + 1));
+              System.out.print("  Type:"+rsd.getColumnTypeName(i + 1));
+              System.out.print("  Column Name:"+rsd.getColumnName(i + 1));
+              System.out.print("  Maxlength:"+rsd.getColumnDisplaySize(i + 1));
+              System.out.print("  Scale:"+rsd.getScale(i + 1));
+              System.out.print("  isNullable:"+rsd.isNullable(i + 1));
+              System.out.println();
+            }
             if ((rs.next()) && (!rs.wasNull())) {
                 String CSTORD = rs.getString("CSTORD").trim();
                 System.out.println(CSTORD);
