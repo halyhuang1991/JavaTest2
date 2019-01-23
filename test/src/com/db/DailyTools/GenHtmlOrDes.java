@@ -28,8 +28,11 @@ public class GenHtmlOrDes {
                     String column_name = (String) map.get("COLUMN_NAME");
                     String comments = (String) map.get("COMMENTS");
                     if (str.toUpperCase().equals(column_name)) {
-                        ls1.add(comments.trim());
+                        if (!ck) {
+                            ls1.add(comments.trim());
+                        }
                         ck = true;
+                        break;
                     }
                 }
                 if (!ck) {
@@ -118,12 +121,12 @@ public class GenHtmlOrDes {
     }
 
     public static void run() {
-        String cols = "sug,ovy,kcol,lcol,skeyp,itramn,itramx,ordqty";
-        String[] tables = new String[] { "phfhut" };
+        String cols = "cstsiz,qty_01,prica,bgsiz,qty_02,bgpric";
+        String[] tables = new String[] { "tmp_0017"};
         if (cols.equals(""))
             return;
-        // System.out.println(GetDes(cols, tables));
-        System.out.println(GetHtml(cols, tables, 2));
+        System.out.println(GetDes(cols, tables));
+        // System.out.println(GetHtml(cols, tables, 2));
 
     }
 }
