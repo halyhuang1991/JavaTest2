@@ -66,7 +66,7 @@ public class GenHtmlOrDes {
 
             List<String> ls1 = new ArrayList<String>();
             String DialogRow = "<div class=\"Dialog-Row\">\r\n%1$s\r\n<div class=\"clear\">\r\n</div>\r\n</ div > ";
-            String DialogColumn = " <div class=\"Dialog-Column\">\r\n<div class=\"title\">\r\n<span><%%=GetFunText(\"lab%1$s\",\"%2$s\") %%></span>\r\n</div>\r\n<div class=\"input\">\r\n<input type=\"text\" id=\"txt%1$s\"  %2$s />\r\n</div><div class=\"clear\"></div>\r\n</div>";
+            String DialogColumn = " <div class=\"Dialog-Column\">\r\n<div class=\"title\">\r\n<span><%%=GetFunText(\"lab%1$s\",\"%2$s\") %%></span>\r\n</div>\r\n<div class=\"input\">\r\n<input type=\"text\" id=\"txt%1$s\" />\r\n</div><div class=\"clear\"></div>\r\n</div>";
             String[] sarr = cols.split(",");
             i = 1;
             String rows = "";
@@ -110,7 +110,7 @@ public class GenHtmlOrDes {
                 String one = String.format(DialogRow, rows);
                 ls1.add(one);
             }
-            String comments = String.join(",", ls1);
+            String comments = String.join("", ls1);
             System.out.println(comments);
 
         } catch (Exception e) {
@@ -121,12 +121,13 @@ public class GenHtmlOrDes {
     }
 
     public static void run() {
-        String cols = "cstsiz,qty_01,prica,bgsiz,qty_02,bgpric";
-        String[] tables = new String[] { "tmp_0017"};
+        String cols = "dep03,depn1";
+        String[] tables = new String[] { "tffshff" };
         if (cols.equals(""))
             return;
-        System.out.println(GetDes(cols, tables));
-        // System.out.println(GetHtml(cols, tables, 2));
+
+        // System.out.println(GetDes(cols, tables));
+        System.out.println(GetHtml(cols, tables, 2));
 
     }
 }
