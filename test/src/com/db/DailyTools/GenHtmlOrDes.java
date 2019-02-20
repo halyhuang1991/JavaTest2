@@ -126,8 +126,8 @@ public class GenHtmlOrDes {
         if (cols.equals(""))
             return;
 
-        // System.out.println(GetDes(cols, tables));
-        System.out.println(GetHtml(cols, tables, 2));
+        System.out.println(GetDes(cols, tables));
+        // System.out.println(GetHtml(cols, tables, 2));
 
     }
 }
