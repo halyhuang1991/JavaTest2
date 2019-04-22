@@ -4,7 +4,7 @@
   - mysql JDBC连接 oracle,mysql,sqlite,db2(as400),mssql
   - other 对mybatis操作mysql的学习，gson使用，创建连接池
 > Refretor 
-  学习反射和注释
+  - 学习反射和注释
 > other 
   * 发送邮件
   * redis
