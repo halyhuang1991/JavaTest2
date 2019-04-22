@@ -39,7 +39,8 @@ public class hello {
         OverRideOut();
         System.out.println("ok");
         // JDBCTest.test();
-        // GenHtmlOrDes.run();
-
+        // Springtest.run();
+        GenHtmlOrDes.run();
+        // com.test.base.j8feature.run();
     }
 }

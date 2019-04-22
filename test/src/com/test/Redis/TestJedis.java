@@ -23,6 +23,13 @@ public class TestJedis {
         for (String item : lrange) {
             System.out.println(item);
         }
+        // ----lock
+        Boolean flag = true;
+        long ii = jedis.setnx("lockKey", "requestId");
+        if (ii == 1) {
+            jedis.expire("lockKey",2000);
+            jedis.del("lockKey");
+        }
 
     }
 

@@ -46,7 +46,7 @@ public class sendEmail {
             // message.setRecipient(Message.RecipientType.BCC, new
             // InternetAddress("reciveuser2@qq.com"));
             // HTML内容
-            message.setContent("<a href='http://blog.csdn.net'>Hello Boy!!</a>", "text/html;charset=utf-8");
+            message.setContent("<a href=''>Hello Boy!!</a>", "text/html;charset=utf-8");
 
             // 连接邮件服务器、发送邮件、关闭连接，全做了
             Transport.send(message);

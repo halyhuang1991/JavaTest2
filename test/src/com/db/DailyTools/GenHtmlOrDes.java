@@ -121,13 +121,13 @@ public class GenHtmlOrDes {
     }
 
     public static void run() {
-        String cols = "dep03,depn1";
-        String[] tables = new String[] { "tffshff" };
+        String cols = "WHSRM,PRTNO,CSTORD,EKEY,CAMUTM,DTE51Z";
+        String[] tables = new String[] { "stkorda", "stkordc", "stkorde", "stkordd", "phfprta", "tfftfrf" };
         if (cols.equals(""))
             return;
 
         System.out.println(GetDes(cols, tables));
-        // System.out.println(GetHtml(cols, tables, 2));
+        // System.out.println(GetHtml(cols, tables, 3));
 
     }
 }
