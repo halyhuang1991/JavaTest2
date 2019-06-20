@@ -25,10 +25,13 @@ public class TestJedis {
         }
         // ----lock
         Boolean flag = true;
-        long ii = jedis.setnx("lockKey", "requestId");
-        if (ii == 1) {
-            jedis.expire("lockKey",2000);
-            jedis.del("lockKey");
+        while (flag) {
+            long ii = jedis.setnx("lockKey", "requestId");
+            if (ii == 1) {
+                jedis.expire("lockKey", 2000);
+                jedis.del("lockKey");
+                flag = false;
+            }
         }
 
     }

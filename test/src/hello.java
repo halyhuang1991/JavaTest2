@@ -16,7 +16,8 @@ import com.test.Email.sendEmail;
 import com.test.Excel.TestExcel;
 import com.test.Redis.TestJedis;
 import com.test.Webserver.*;
-
+import com.test.Webserver.WebSocket.MyWebSocket;
+import com.test.base.QrCode;
 import com.test.spring.Springtest;
 
 public class hello {
@@ -38,9 +39,10 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         System.out.println("ok");
+        QrCode.GetQrContent("D:/img.png");
         // JDBCTest.test();
         // Springtest.run();
-        GenHtmlOrDes.run();
+        // GenHtmlOrDes.run();
         // com.test.base.j8feature.run();
     }
 }
