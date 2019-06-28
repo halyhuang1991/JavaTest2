@@ -39,10 +39,11 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         System.out.println("ok");
-        QrCode.GetQrContent("D:/img.png");
+        // QrCode.GetQrContent("D:/img.png");
         // JDBCTest.test();
         // Springtest.run();
         // GenHtmlOrDes.run();
         // com.test.base.j8feature.run();
     }
+
 }
