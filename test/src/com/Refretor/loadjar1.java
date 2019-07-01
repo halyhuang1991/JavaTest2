@@ -38,25 +38,26 @@ public class loadjar1 {
                         // 去除后缀.class，获得类
                         String className = classFullName.substring(0, classFullName.length() - 6).replace("/", ".");
                         Class<?> myClass = classLoader.loadClass(className);
-                        sBuffer.append("类名\t" + className);
-                        System.out.println("类名\t" + className);
+                        sBuffer.append("类名    " + className);
+                        System.out.println("类名    " + className);
 
                         // 获得属名
                         Class<?> clazz = Class.forName(className);
                         Field[] fields = clazz.getDeclaredFields();
                         for (Field field : fields) {
-                            sBuffer.append("属名\t" + field.getName() + "\n");
-                            System.out.println("属名\t" + field.getName());
-                            sBuffer.append("-属类型\t" + field.getType() + "\n");
-                            System.out.println("-属类型\t" + field.getType());
+                            sBuffer.append("属名    " + field.getName() + "\n");
+                            System.out.println("属名    " + field.getName());
+                            sBuffer.append("-属类型    " + field.getType() + "\n");
+                            System.out.println("-属类型    " + field.getType());
                         }
 
                         Method[] methods = myClass.getMethods();
                         for (Method method : methods) {
                             if (method.toString().indexOf(className) > 0) {
-                                sBuffer.append("方法名\t" +method.toString().substring(method.toString().indexOf(className)) + "\n");
-                                System.out.println("方法名\t" +
-                                         method.toString().substring(method.toString().indexOf(className)));
+                                sBuffer.append("方法名  " 
+                                          +method.toString().substring(method.toString().indexOf(className)) + "\n");
+                                System.out.println(
+                                        "方法名    " + method.toString().substring(method.toString().indexOf(className)));
                             }
                         }
                         sBuffer.append(
