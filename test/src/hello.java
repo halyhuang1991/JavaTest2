@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
 import com.Refretor.TestRefretor;
+import com.Refretor.loadjar1;
 import com.db.DailyTools.GenHtmlOrDes;
 import com.db.Helpers.SessionFactory;
 import com.db.JDBC.JDBCTest;
@@ -38,6 +39,11 @@ public class hello {
 
     public static void main(String[] args) {
         OverRideOut();
+        try {
+			loadjar1.getJar("D:\\C\\github\\JavaTest2\\test\\lib\\gson-2.2.2.jar");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
         System.out.println("ok");
         // QrCode.GetQrContent("D:/img.png");
         // JDBCTest.test();

@@ -10,7 +10,7 @@ import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-public class loadjar {
+public class loadjar1 {
 
     private static StringBuffer sBuffer;
 
@@ -25,7 +25,7 @@ public class loadjar {
             Enumeration<JarEntry> enumeration = jarFile.entries();
             JarEntry jarEntry;
 
-            sBuffer = new StringBuffer(); // 存数据
+            sBuffer = new StringBuffer(); // 存数
 
             while (enumeration.hasMoreElements()) {
                 jarEntry = enumeration.nextElement();
@@ -35,29 +35,28 @@ public class loadjar {
                     if (classFullName.indexOf(".class") < 0) {
                         classFullName = classFullName.substring(0, classFullName.length() - 1);
                     } else {
-                        // 去除后缀.class，获得类名
+                        // 去除后缀.class，获得类
                         String className = classFullName.substring(0, classFullName.length() - 6).replace("/", ".");
                         Class<?> myClass = classLoader.loadClass(className);
-                        sBuffer.append("类名\t：" + className);
-                        System.out.println("类名\t：" + className);
+                        sBuffer.append("类名\t" + className);
+                        System.out.println("类名\t" + className);
 
-                        // 获得属性名
+                        // 获得属名
                         Class<?> clazz = Class.forName(className);
                         Field[] fields = clazz.getDeclaredFields();
                         for (Field field : fields) {
-                            sBuffer.append("属性名\t：" + field.getName() + "\n");
-                            System.out.println("属性名\t：" + field.getName());
-                            sBuffer.append("-属性类型\t：" + field.getType() + "\n");
-                            System.out.println("-属性类型\t：" + field.getType());
+                            sBuffer.append("属名\t" + field.getName() + "\n");
+                            System.out.println("属名\t" + field.getName());
+                            sBuffer.append("-属类型\t" + field.getType() + "\n");
+                            System.out.println("-属类型\t" + field.getType());
                         }
 
                         Method[] methods = myClass.getMethods();
                         for (Method method : methods) {
                             if (method.toString().indexOf(className) > 0) {
-                                sBuffer.append("方法名\t：" +
-                                         method.toString().substring(method.toString().indexOf(className)) + "\n");
-                                System.out.println(
-                                        "方法名\t：" + method.toString().substring(method.toString().indexOf(className)));
+                                sBuffer.append("方法名\t" +method.toString().substring(method.toString().indexOf(className)) + "\n");
+                                System.out.println("方法名\t" +
+                                         method.toString().substring(method.toString().indexOf(className)));
                             }
                         }
                         sBuffer.append(
@@ -77,14 +76,14 @@ public class loadjar {
     }
 
     public Object copy(Object object) throws Exception {
-        // 获得对象的类型
+        // 获得对象的类
         Class classType = object.getClass();
         System.out.println("Class:" + classType.getName());
 
-        // 通过默认构造方法创建一个新的对象
+        // 通过默认构方法创建一个新的对
         Object objectCopy = classType.getConstructor(new Class[] {}).newInstance(new Object[] {});
 
-        // 获得对象的所有属性
+        // 获得对象的所有属
         Field fields[] = classType.getDeclaredFields();
 
         for (int i = 0; i < fields.length; i++) {
@@ -92,9 +91,9 @@ public class loadjar {
 
             String fieldName = field.getName();
             String firstLetter = fieldName.substring(0, 1).toUpperCase();
-            // 获得和属性对应的getXXX()方法的名字
+            // 获得和属性对应的getXXX()方法的名
             String getMethodName = "get" + firstLetter + fieldName.substring(1);
-            // 获得和属性对应的setXXX()方法的名字
+            // 获得和属性对应的setXXX()方法的名
             String setMethodName = "set" + firstLetter + fieldName.substring(1);
 
             // 获得和属性对应的getXXX()方法
