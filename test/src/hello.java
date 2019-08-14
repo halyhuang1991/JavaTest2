@@ -18,6 +18,7 @@ import com.test.Excel.TestExcel;
 import com.test.Redis.TestJedis;
 import com.test.Webserver.*;
 import com.test.Webserver.WebSocket.MyWebSocket;
+import com.test.base.NIO;
 import com.test.base.QrCode;
 import com.test.spring.Springtest;
 
@@ -40,10 +41,10 @@ public class hello {
     public static void main(String[] args) {
         OverRideOut();
         try {
-			loadjar1.getJar("D:\\C\\github\\JavaTest2\\test\\lib\\gson-2.2.2.jar");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+            // loadjar1.getJar("D:\\C\\github\\JavaTest2\\test\\lib\\gson-2.2.2.jar");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         System.out.println("ok");
         // QrCode.GetQrContent("D:/img.png");
         // JDBCTest.test();
