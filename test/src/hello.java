@@ -20,6 +20,7 @@ import com.test.Webserver.*;
 import com.test.Webserver.WebSocket.MyWebSocket;
 import com.test.base.NIO;
 import com.test.base.QrCode;
+import com.test.base.RedisSocket;
 import com.test.spring.Springtest;
 
 public class hello {
@@ -42,6 +43,8 @@ public class hello {
         OverRideOut();
         try {
             // loadjar1.getJar("D:\\C\\github\\JavaTest2\\test\\lib\\gson-2.2.2.jar");
+            RedisSocket.Set();
+            // TestJedis.testConnRedis();
         } catch (Exception e) {
             e.printStackTrace();
         }
