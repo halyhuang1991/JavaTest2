@@ -60,7 +60,7 @@ public class SocketNIO {
     }
 
     public static void serverRun() throws IOException {
-        ServerSocketChannel ssc = ServerSocketChannel.open();// 新建NIO通道
+        ssc = ServerSocketChannel.open();// 新建NIO通道
         ssc.configureBlocking(false);// 使通道为非阻塞
         ServerSocket ss = ssc.socket();
         ss.bind(new InetSocketAddress("127.0.0.1", 8189));
