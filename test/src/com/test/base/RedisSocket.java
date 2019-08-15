@@ -13,6 +13,7 @@ public class RedisSocket {
             InputStream is = socket.getInputStream();
 
             // 向redis服务器写
+            // os.write("auth hello\r\n".getBytes());
             os.write("set hello world123\r\n".getBytes());
 
             // 从redis服务器读,到bytes中
